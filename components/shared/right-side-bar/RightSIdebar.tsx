@@ -12,10 +12,10 @@ const hotQuestion = [
 ];
 
 const tags = [
-  { _id: 1, name: "java", totalQuestions: 2 },
-  { _id: 1, name: "javaScript", totalQuestions: 12 },
-  { _id: 1, name: "c", totalQuestions: 3 },
-  { _id: 1, name: "cpp", totalQuestions: 23 },
+  { _id: "1", name: "java", totalQuestions: 2 },
+  { _id: "1", name: "javaScript", totalQuestions: 12 },
+  { _id: "1", name: "c", totalQuestions: 3 },
+  { _id: "1", name: "cpp", totalQuestions: 23 },
 ];
 
 const RightSIdebar = () => {
