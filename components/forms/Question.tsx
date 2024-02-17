@@ -21,6 +21,7 @@ import { Input } from "@/components/ui/input";
 import { AskQuestionformSchema } from "@/lib/validations";
 import { Badge } from "../ui/badge";
 import Image from "next/image";
+import { createQuestion } from "@/lib/actions/question.action";
 
 const type: any = "create";
 
@@ -37,11 +38,11 @@ const Question = () => {
     },
   });
 
-  function onSubmit(values: z.infer<typeof AskQuestionformSchema>) {
+  async function onSubmit(values: z.infer<typeof AskQuestionformSchema>) {
     setIsSubmitting(true);
 
     try {
-      // make a api call async
+      await createQuestion();
     } catch (error) {
     } finally {
       setIsSubmitting(false);
@@ -129,7 +130,9 @@ const Question = () => {
                       // @ts-ignore
                       editorRef.current = editor;
                     }}
-                    initialValue="<p>This is the initial content of the editor.</p>"
+                    onBlur={field.onBlur}
+                    onEditorChange={(content) => field.onChange(content)}
+                    initialValue=""
                     init={{
                       height: 350,
                       menubar: false,
